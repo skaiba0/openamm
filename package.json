@@ -1,0 +1,25 @@
+{
+  "scripts": {
+    "lint:fix": "prettier */*.js \"*/**/*{.js,.ts}\" -w",
+    "lint": "prettier */*.js \"*/**/*{.js,.ts}\" --check",
+    "build:deps": "cd deps/openbook-dex/dex && cargo build-bpf --sbf-out-dir target/deploy && cd ../../..",
+    "build:all": "yarn install && yarn build:deps && anchor build",
+    "test": "anchor test --skip-build --detach"
+  },
+  "dependencies": {
+    "@project-serum/anchor": "^0.26.0",
+    "@project-serum/common": "^0.0.1-beta.3",
+    "@project-serum/serum": "^0.13.65",
+    "@solana/spl-token": "^0.3.6"
+  },
+  "devDependencies": {
+    "@types/bn.js": "^5.1.0",
+    "@types/chai": "^4.3.0",
+    "@types/mocha": "^9.0.0",
+    "chai": "^4.3.4",
+    "mocha": "^9.0.3",
+    "prettier": "^2.6.2",
+    "ts-mocha": "^10.0.0",
+    "typescript": "^4.3.5"
+  }
+}

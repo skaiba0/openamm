@@ -1,0 +1,13 @@
+anchor_version = "0.25.0"
+
+[workspace]
+members = [
+    ".",
+]
+
+[provider]
+cluster = "localnet"
+wallet = "~/.config/solana/id.json"
+
+[programs.mainnet]
+serum_dex = "srmqPvymJeFKQ4zGQed1GFppgkRHL9kaELCbyksJtPX"

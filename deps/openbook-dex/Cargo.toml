@@ -1,0 +1,10 @@
+[workspace]
+members = [
+    "assert-owner",
+    "common",
+    "dex/crank",
+    "dex/permissioned",
+]
+exclude = [
+    "dex",
+]

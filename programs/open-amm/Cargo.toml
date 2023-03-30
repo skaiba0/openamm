@@ -1,0 +1,26 @@
+[package]
+name = "open-amm"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "open_amm"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = "0.26.0"
+anchor-spl = { version = "0.26.0", features = ["dex"] }
+num-derive = "0.3.3"
+num-traits = "0.2.14"
+safe-transmute = "0.11.2"
+serum_dex = { path = "../../deps/openbook-dex/dex", features = ["no-entrypoint"] }
+solana-program = "1.10.29"
+spl-token = "3.3.0"

@@ -1,0 +1,38 @@
+dist: bionic
+language: rust
+rust:
+  - stable
+cache: cargo
+env:
+  global:
+    - NODE_VERSION="v14.7.0"
+    - SOLANA_VERSION="v1.9.1"
+
+_defaults: &defaults
+  language: rust
+  rust:
+    - stable
+  before_script:
+    - rustup component add rustfmt clippy
+    - nvm install $NODE_VERSION
+    - sudo apt-get install -y pkg-config build-essential libudev-dev jq
+    - sh -c "$(curl -sSfL https://release.solana.com/${SOLANA_VERSION}/install)"
+    - export PATH="/home/travis/.local/share/solana/install/active_release/bin:$PATH"
+    - yes | solana-keygen new
+
+jobs:
+  include:
+    - <<: *defaults
+      name: Dex tests
+      script:
+        - ./scripts/travis/dex-tests.sh
+    - <<: *defaults
+      name: Permissioned Dex tests
+      script:
+        - cd dex/tests/permissioned/ && yarn && yarn build && yarn test && cd ../../../
+    - <<: *defaults
+      name: Fmt and Common Tests
+      script:
+        - cargo build
+        - cargo fmt -- --check
+        - cargo test --features client,strict
