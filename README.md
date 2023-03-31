@@ -4,6 +4,10 @@ OpenAmm is an open source, automated orderbook liquidity provisioning protocol b
 
 OpenAmm allows users to permissionlessly provision their own AMM deployments and liquidity pools on top of OpenBook, and enables the community to improve upon the protocol together.
 
+SDK: https://github.com/skaiba0/openamm-sdk
+
+Farm Protocol: https://github.com/skaiba0/openamm-farm
+
 # OpenBook
 
 OpenBook is a community-driven protocol to create a CLOB trading experience for traders on Solana. As a core value of OpenBook, open source has been a vital part of growing the community and creating trust.
